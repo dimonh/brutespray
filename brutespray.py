@@ -74,16 +74,16 @@ def interactive():
     t = tabCompleter()
     singluser = ""
     if args.interactive is True:
-        print colors.white + "\n\nWelcome to interactive mode!\n\n" + colors.normal
-        print colors.red + "WARNING:" + colors.white + " Leaving an option blank will leave it empty and refer to default\n\n" + colors.normal
-        print "Available services to brute-force:"
+        print (colors.white + "\n\nWelcome to interactive mode!\n\n" + colors.normal)
+        print (colors.red + "WARNING:" + colors.white + " Leaving an option blank will leave it empty and refer to default\n\n" + colors.normal)
+        print ("Available services to brute-force:")
         for serv in services:
             srv = serv
             for prt in services[serv]:
                 iplist = services[serv][prt]
                 port = prt
                 plist = len(iplist)
-                print "Service: " + colors.green + str(serv) + colors.normal + " on port " + colors.red + str(port) + colors.normal + " with " + colors.red + str(plist) + colors.normal + " hosts"
+                print ("Service: " + colors.green + str(serv) + colors.normal + " on port " + colors.red + str(port) + colors.normal + " with " + colors.red + str(plist) + colors.normal + " hosts")
 
         args.service = raw_input('\n' + colors.lightblue + 'Enter services you want to brute - default all (ssh,ftp,etc): ' + colors.red)
 
@@ -125,7 +125,7 @@ def interactive():
         if args.hosts == "":
             args.hosts = "1"
 
-    print colors.normal
+    print (colors.normal)
 
 NAME_MAP = {"ms-sql-s": "mssql",
             "microsoft-ds": "smbnt",
@@ -384,9 +384,9 @@ if __name__ == "__main__":
         animate()
 
         if services == {}:
-            print "\nNo brutable services found.\n Please check your Nmap file."
+            print ("\nNo brutable services found.\n Please check your Nmap file.")
     else:
-        print "\nError loading file, please check your filename."
+        print ("\nError loading file, please check your filename.")
 
     to_scan = args.service.split(',')
     for service in services:
